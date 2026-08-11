@@ -35,30 +35,32 @@ export default function McMenu() {
   return (
     <section
       ref={ref}
-      className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden pt-10"
+      className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden px-6 pt-12"
     >
-      <div className="relative z-10 flex flex-col items-center w-full max-w-4xl px-4">
+      <div className="relative z-10 flex flex-col items-center w-full max-w-5xl">
         
-        {/* Logo */}
-        <div className="relative mb-16">
+        {/* Name / Logo */}
+        <div className="relative mb-20 flex flex-col items-center gap-4">
           <h1 
-            className="text-7xl md:text-9xl text-white text-center uppercase tracking-[0.2em] font-black"
+            className="text-4xl md:text-7xl text-white text-center font-black tracking-wide"
+            dir="rtl"
           >
-            KEYU
+            عبد الرحمن عامودي
           </h1>
+          <h2 
+            className="text-lg md:text-2xl text-white/60 text-center uppercase tracking-[0.4em] font-light"
+          >
+            Abdalrahman Amoudi
+          </h2>
         </div>
 
         {/* Menu Buttons */}
-        <div className="flex flex-col gap-4 md:gap-5 w-full items-center max-w-md">
-          <McButton onClick={() => scrollTo('work-section')}>Projects</McButton>
-          <McButton onClick={() => scrollTo('about-section')}>About Me</McButton>
-          <div className="flex w-full">
-            <McButton onClick={() => window.open('https://github.com/gboody37', '_blank')} className="w-full">GitHub</McButton>
-          </div>
-          <div className="flex gap-4 md:gap-5 w-full">
-            <McButton onClick={() => scrollTo('contact-section')} className="flex-1">Contact</McButton>
-            <McButton onClick={() => window.location.href='/resume.pdf'} className="flex-1">Resume</McButton>
-          </div>
+        <div className="flex flex-col md:flex-row flex-wrap justify-center gap-4 w-full max-w-3xl">
+          <McButton onClick={() => scrollTo('work-section')} className="md:w-[200px]">Projects</McButton>
+          <McButton onClick={() => scrollTo('about-section')} className="md:w-[200px]">About Me</McButton>
+          <McButton onClick={() => window.open('https://github.com/gboody37', '_blank')} className="md:w-[200px]">GitHub</McButton>
+          <McButton onClick={() => scrollTo('contact-section')} className="md:w-[200px]">Contact</McButton>
+          <McButton onClick={() => window.location.href='/resume.pdf'} className="md:w-[200px]">Resume</McButton>
         </div>
       </div>
     </section>
