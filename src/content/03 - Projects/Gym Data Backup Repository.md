@@ -6,7 +6,7 @@ repository: gboody37/gym-data
 
 # Gym Data Backup Repository
 
-![Data Center](https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2560&auto=format&fit=crop)
+![Data Backup Dashboard](/photo/projects/data-backup.jpg)
 
 A dedicated **data backup and version control** system for the Dumbbell Gym application. This repository ensures all critical gym data — member records, financial transactions, and inventory — is safely backed up with full version history.
 
@@ -20,8 +20,6 @@ Checksums and validation scripts verify data integrity after every backup cycle,
 
 ### Historical Tracking
 Every change to member records, payment history, and inventory levels is tracked through git commits, providing a complete audit trail.
-
-![Server Room](https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?q=80&w=2560&auto=format&fit=crop)
 
 ## Technologies
 - PostgreSQL data export

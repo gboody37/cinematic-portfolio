@@ -5,7 +5,7 @@ status: "Completed"
 
 # Obsidian AI Brain Setup
 
-![AI Brain Workspace](https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2560&auto=format&fit=crop)
+![AI Brain Dashboard](/photo/projects/ai-brain.jpg)
 
 An intelligent **Personal Knowledge Management** system built on top of Obsidian, integrated with AI-powered agents. This system automates note-taking, knowledge retrieval, and cross-referencing across hundreds of documents.
 
@@ -19,8 +19,6 @@ Scheduled tasks handle daily summaries, project status updates, and knowledge gr
 
 ### Smart Templates
 Pre-configured templates for meeting notes, project briefs, and research logs ensure consistency across the knowledge base.
-
-![Neural Network](https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2560&auto=format&fit=crop)
 
 ## Technologies
 - Obsidian with custom plugins

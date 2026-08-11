@@ -5,7 +5,7 @@ status: "Completed"
 
 # Enterprise Network Architecture
 
-![Server Rack](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2560&auto=format&fit=crop)
+![Network Topology](/photo/projects/network-topology.jpg)
 
 This project outlines a comprehensive, scalable enterprise network topology designed entirely within **Cisco Packet Tracer**. It serves as a proof-of-concept for secure, high-availability corporate infrastructures.
 
@@ -17,8 +17,6 @@ The network is segregated into multiple VLANs (Virtual Local Area Networks) to e
 - **OSPF Routing:** Dynamic routing protocols configured across all core routers to guarantee redundancy and optimal path selection.
 - **Access Control Lists (ACLs):** Strict firewall rules preventing unauthorized communication between sensitive subnets.
 - **DHCP & DNS Services:** Centralized server configurations handling IP distributions across a massive device pool.
-
-![Network Cables](https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2560&auto=format&fit=crop)
 
 ## Technologies Utilized
 - Cisco IOS Configuration

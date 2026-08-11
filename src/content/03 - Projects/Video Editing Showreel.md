@@ -5,7 +5,7 @@ status: "Completed"
 
 # Video Editing Showreel
 
-![Video Editing Workflow](https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2560&auto=format&fit=crop)
+![Video Editing Workspace](/photo/projects/video-editing.jpg)
 
 This project represents a collection of highly cinematic, energy-driven video edits. From crafting fast-paced montages synced to beat-heavy soundtracks to developing narrative-driven short films, this portfolio demonstrates a deep mastery of modern video editing techniques.
 
@@ -19,8 +19,6 @@ Sound is half the experience. Every cut, transition, and motion graphic is perfe
 
 ### Motion Graphics & VFX
 Integrating **After Effects** into the workflow allows for seamless 3D tracking, glowing lower-thirds, and complex rotoscoping. Custom transitions built from scratch eliminate the need for generic drag-and-drop presets, ensuring every project feels unique.
-
-![Studio Setup](https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2560&auto=format&fit=crop)
 
 ## Software Stack
 - Adobe Premiere Pro
