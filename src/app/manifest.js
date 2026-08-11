@@ -1,7 +1,7 @@
 export default function manifest() {
   return {
-    name:             "Sarang — Creative Developer",
-    short_name:       "Sarang",
+    name:             "Abdalrahman — Creative Developer",
+    short_name:       "Abdalrahman",
     description:      "Cinematic digital experiences at the intersection of design and code.",
     start_url:        "/",
     display:          "standalone",

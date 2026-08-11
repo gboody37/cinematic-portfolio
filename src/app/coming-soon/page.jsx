@@ -78,7 +78,7 @@ export default function ComingSoonPage() {
 
         {/* Name label */}
         <p className="text-[9px] md:text-[10px] text-[#ff6b1a] tracking-[0.6em] uppercase font-bold mb-6 md:mb-10">
-          Sarang
+          Abdalrahman
         </p>
 
         {/* Heading */}

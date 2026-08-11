@@ -75,7 +75,7 @@ export default function Footer() {
             className="font-black tracking-tighter leading-[0.85]"
             style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}
           >
-            <span className="block text-white">Sarang</span>
+            <span className="block text-white">Abdalrahman</span>
           </h2>
         </div>
 
@@ -121,10 +121,10 @@ export default function Footer() {
           className="text-[10px] text-white/20 tracking-widest"
           style={{ fontFamily: '"Times New Roman", Times, serif', fontStyle: "italic" }}
         >
-          sarangwalle@gmail.com
+          abdalrahmanwalle@gmail.com
         </p>
         <p className="text-[10px] text-white/15 tracking-[0.3em] uppercase">
-          © {new Date().getFullYear()} Sarang Walle. All rights reserved.
+          © {new Date().getFullYear()} Abdalrahman Walle. All rights reserved.
         </p>
       </div>
 

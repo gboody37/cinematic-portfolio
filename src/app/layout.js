@@ -17,7 +17,7 @@ const pixel = Press_Start_2P({
   display: "swap"
 });
 
-const BASE = "https://sarang-space.site";
+const BASE = "https://abdalrahman-space.site";
 
 export const viewport = {
   themeColor: "#ff6b1a",
@@ -27,8 +27,8 @@ export const metadata = {
   metadataBase: new URL(BASE),
 
   title: {
-    default: "Sarang — Next.js Developer, Shopify Expert, Graphic Designer & Video Editor",
-    template: "%s — Sarang | Next.js Developer & Shopify Expert",
+    default: "Abdalrahman — Next.js Developer, Shopify Expert, Graphic Designer & Video Editor",
+    template: "%s — Abdalrahman | Next.js Developer & Shopify Expert",
   },
   description:
     "Creative developer and designer specializing in Next.js websites, Shopify stores, branding, cinematic video editing, motion graphics, and premium digital experiences.",
@@ -38,31 +38,31 @@ export const metadata = {
     "Cinematic Portfolio", "GSAP Animation", "React Developer",
     "Modern Web Design", "Portfolio Template", "Freelance Developer India"
   ],
-  authors: [{ name: "Sarang", url: BASE }],
-  creator: "Sarang",
-  publisher: "Sarang",
+  authors: [{ name: "Abdalrahman", url: BASE }],
+  creator: "Abdalrahman",
+  publisher: "Abdalrahman",
 
   openGraph: {
     type: "website",
     locale: "en_US",
     url: BASE,
-    siteName: "Sarang — Next.js Developer, Shopify Expert, Graphic Designer & Video Editor",
-    title: "Sarang — Next.js Developer, Shopify Expert, Graphic Designer & Video Editor",
+    siteName: "Abdalrahman — Next.js Developer, Shopify Expert, Graphic Designer & Video Editor",
+    title: "Abdalrahman — Next.js Developer, Shopify Expert, Graphic Designer & Video Editor",
     description: "Creative developer and designer specializing in Next.js websites, Shopify stores, branding, cinematic video editing, motion graphics, and premium digital experiences.",
     images: [{
       url: "/og-image.png",
       width: 1200,
       height: 630,
-      alt: "Sarang — Next.js Developer, Shopify Expert, Graphic Designer & Video Editor",
+      alt: "Abdalrahman — Next.js Developer, Shopify Expert, Graphic Designer & Video Editor",
     }],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Sarang — Next.js Developer, Shopify Expert, Graphic Designer & Video Editor",
+    title: "Abdalrahman — Next.js Developer, Shopify Expert, Graphic Designer & Video Editor",
     description: "Creative developer and designer specializing in Next.js websites, Shopify stores, branding, cinematic video editing, motion graphics, and premium digital experiences.",
     images: ["/og-image.png"],
-    creator: "@sarang",
+    creator: "@abdalrahman",
   },
 
   robots: {
@@ -98,7 +98,7 @@ const jsonLd = {
     {
       "@type": "Person",
       "@id": `${BASE}/#person`,
-      "name": "Sarang",
+      "name": "Abdalrahman",
       "url": BASE,
       "jobTitle": "Creative Developer",
       "description": "Creative developer building cinematic digital experiences at the intersection of design and code. Specialising in Next.js, GSAP, Three.js, and WebGL.",
@@ -174,7 +174,7 @@ const jsonLd = {
     {
       "@type": "ProfessionalService",
       "@id": `${BASE}/#localbusiness`,
-      "name": "Sarang — Creative Developer",
+      "name": "Abdalrahman — Creative Developer",
       "image": `${BASE}/og-image.png`,
       "url": BASE,
       "telephone": "+91-0000000000",
@@ -191,8 +191,8 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": `${BASE}/#website`,
       "url": BASE,
-      "name": "Sarang — Creative Developer",
-      "description": "Portfolio of Sarang, a creative developer building cinematic digital experiences with React, Next.js, GSAP, Three.js, and WebGL.",
+      "name": "Abdalrahman — Creative Developer",
+      "description": "Portfolio of Abdalrahman, a creative developer building cinematic digital experiences with React, Next.js, GSAP, Three.js, and WebGL.",
       "publisher": { "@id": `${BASE}/#person` },
       "inLanguage": "en-US",
     },
@@ -200,7 +200,7 @@ const jsonLd = {
       "@type": "ProfilePage",
       "@id": `${BASE}/#profilepage`,
       "url": BASE,
-      "name": "Sarang — Creative Developer Portfolio",
+      "name": "Abdalrahman — Creative Developer Portfolio",
       "isPartOf": { "@id": `${BASE}/#website` },
       "about": { "@id": `${BASE}/#person` },
       "mainEntity": { "@id": `${BASE}/#person` },
@@ -244,73 +244,73 @@ const jsonLd = {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What services does Sarang offer?",
+          "name": "What services does Abdalrahman offer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sarang offers creative web development (React, Next.js, GSAP, Three.js), video editing and motion design (After Effects, Premiere Pro, DaVinci Resolve), UI/UX design (Figma, Photoshop), Shopify development, and Flutter mobile app development."
+            "text": "Abdalrahman offers creative web development (React, Next.js, GSAP, Three.js), video editing and motion design (After Effects, Premiere Pro, DaVinci Resolve), UI/UX design (Figma, Photoshop), Shopify development, and Flutter mobile app development."
           }
         },
         {
           "@type": "Question",
-          "name": "How can I hire Sarang for a project?",
+          "name": "How can I hire Abdalrahman for a project?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can reach out through the contact form at sarang-space.site/contact or email sarangwalle@gmail.com. Sarang is available for freelance projects worldwide."
+            "text": "You can reach out through the contact form at abdalrahman-space.site/contact or email abdalrahmanwalle@gmail.com. Abdalrahman is available for freelance projects worldwide."
           }
         },
         {
           "@type": "Question",
-          "name": "What technologies does Sarang work with?",
+          "name": "What technologies does Abdalrahman work with?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sarang works with React, Next.js, GSAP, Three.js, WebGL, Tailwind CSS, Node.js, Flutter, Shopify Liquid, Python, TypeScript, MongoDB, PostgreSQL, and creative tools like After Effects, Premiere Pro, Figma, and Photoshop."
+            "text": "Abdalrahman works with React, Next.js, GSAP, Three.js, WebGL, Tailwind CSS, Node.js, Flutter, Shopify Liquid, Python, TypeScript, MongoDB, PostgreSQL, and creative tools like After Effects, Premiere Pro, Figma, and Photoshop."
           }
         },
         {
           "@type": "Question",
-          "name": "Where is Sarang based and does he work remotely?",
+          "name": "Where is Abdalrahman based and does he work remotely?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sarang is based in India and is fully available for remote freelance projects worldwide. He has worked with clients across different countries and time zones."
+            "text": "Abdalrahman is based in India and is fully available for remote freelance projects worldwide. He has worked with clients across different countries and time zones."
           }
         },
         {
           "@type": "Question",
-          "name": "How long does a typical project take with Sarang?",
+          "name": "How long does a typical project take with Abdalrahman?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Project timelines depend on scope. A simple portfolio website typically takes 1–2 weeks. A full-stack web application or complex interactive site can take 3–6 weeks. Video editing projects are usually delivered within 3–7 days. Contact Sarang at sarang-space.site/contact for a specific estimate."
+            "text": "Project timelines depend on scope. A simple portfolio website typically takes 1–2 weeks. A full-stack web application or complex interactive site can take 3–6 weeks. Video editing projects are usually delivered within 3–7 days. Contact Abdalrahman at abdalrahman-space.site/contact for a specific estimate."
           }
         },
         {
           "@type": "Question",
-          "name": "What makes Sarang different from other freelance developers?",
+          "name": "What makes Abdalrahman different from other freelance developers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sarang combines three disciplines — web development, video editing, and visual design — in one person. He specializes in cinematic, immersive experiences with GSAP animations, Three.js 3D, and WebGL. His work focuses on feeling as much as function, creating digital experiences that are premium, smooth, and memorable."
+            "text": "Abdalrahman combines three disciplines — web development, video editing, and visual design — in one person. He specializes in cinematic, immersive experiences with GSAP animations, Three.js 3D, and WebGL. His work focuses on feeling as much as function, creating digital experiences that are premium, smooth, and memorable."
           }
         },
         {
           "@type": "Question",
-          "name": "What is Sarang's background and education?",
+          "name": "What is Abdalrahman's background and education?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sarang is a 19-year-old from India currently studying Cybersecurity. He has been freelancing since 2020 — starting with photo editing and graphic design, expanding into video editing in 2022, and full-stack web development in 2024. He has 6+ years of creative freelance experience."
+            "text": "Abdalrahman is a 19-year-old from India currently studying Cybersecurity. He has been freelancing since 2020 — starting with photo editing and graphic design, expanding into video editing in 2022, and full-stack web development in 2024. He has 6+ years of creative freelance experience."
           }
         }
       ]
     },
     {
       "@type": "HowTo",
-      "name": "How to Hire Sarang as a Freelance Developer or Editor",
-      "description": "Steps to hire Sarang for freelance web development, video editing, or design work",
+      "name": "How to Hire Abdalrahman as a Freelance Developer or Editor",
+      "description": "Steps to hire Abdalrahman for freelance web development, video editing, or design work",
       "totalTime": "PT5M",
       "step": [
         {
           "@type": "HowToStep",
           "position": 1,
           "name": "Visit the contact page",
-          "text": "Go to sarang-space.site/contact to find the contact form and inquiry options.",
+          "text": "Go to abdalrahman-space.site/contact to find the contact form and inquiry options.",
           "url": `${BASE}/contact`
         },
         {
@@ -324,7 +324,7 @@ const jsonLd = {
           "@type": "HowToStep",
           "position": 3,
           "name": "Receive a response",
-          "text": "Sarang responds within 24 hours to discuss requirements, timeline, and pricing."
+          "text": "Abdalrahman responds within 24 hours to discuss requirements, timeline, and pricing."
         },
         {
           "@type": "HowToStep",
@@ -338,10 +338,10 @@ const jsonLd = {
       "@type": "WebPage",
       "@id": `${BASE}/#webpage`,
       "url": BASE,
-      "name": "Sarang — Portfolio Designer, Website Developer, Video Editor & Photo Editor",
+      "name": "Abdalrahman — Portfolio Designer, Website Developer, Video Editor & Photo Editor",
       "isPartOf": { "@id": `${BASE}/#website` },
       "about": { "@id": `${BASE}/#person` },
-      "description": "Portfolio of Sarang — a freelance portfolio designer, website developer, video editor, and photo editor from India building cinematic digital experiences.",
+      "description": "Portfolio of Abdalrahman — a freelance portfolio designer, website developer, video editor, and photo editor from India building cinematic digital experiences.",
       "inLanguage": "en-US",
       "speakable": {
         "@type": "SpeakableSpecification",

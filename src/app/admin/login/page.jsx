@@ -31,7 +31,7 @@ export default function AdminLogin() {
     <div className="admin-cursor min-h-screen bg-[#080808] flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="mb-10 text-center">
-          <span className="text-[#ff6b1a] font-black text-3xl tracking-tight">Sarang</span>
+          <span className="text-[#ff6b1a] font-black text-3xl tracking-tight">Abdalrahman</span>
           <p className="text-white/30 text-sm mt-2">Admin Panel</p>
         </div>
 

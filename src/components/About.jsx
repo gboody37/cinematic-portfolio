@@ -62,7 +62,7 @@ export default function About({ standalone = false }) {
         <div className="about-img absolute inset-0 z-0">
           <Image
             src="/photo/about me.webp"
-            alt="Sarang"
+            alt="Abdalrahman"
             fill
             className="object-cover object-center"
             priority

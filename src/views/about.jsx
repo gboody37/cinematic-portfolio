@@ -44,7 +44,7 @@ export default function AboutPage() {
       <div className="ap-img absolute inset-0 z-0 opacity-20">
         <Image
           src="/photo/about me.webp"
-          alt="Sarang"
+          alt="Abdalrahman"
           fill
           className="object-cover object-center filter blur-md"
           priority
@@ -69,11 +69,11 @@ export default function AboutPage() {
 
         <div className="ap-card flex justify-center my-6">
           <ProfileCard
-            name="Sarang"
+            name="Abdalrahman"
             title="Creative Developer & Designer"
-            handle="sarang"
-            avatarUrl="/photo/Sarang.png"
-            miniAvatarUrl="/photo/Sarang.png"
+            handle="abdalrahman"
+            avatarUrl="/photo/Abdalrahman.png"
+            miniAvatarUrl="/photo/Abdalrahman.png"
             showUserInfo={true}
             enableTilt={false}
             enableMobileTilt={false}
@@ -141,11 +141,11 @@ export default function AboutPage() {
           {/* Left: Interactive Studio Card (Sticky) */}
           <div className="ap-card flex justify-center items-start sticky top-[15vh]">
             <ProfileCard
-              name="Sarang"
+              name="Abdalrahman"
               title="Creative Developer & Designer"
-              handle="sarang"
-              avatarUrl="/photo/Sarang.png"
-              miniAvatarUrl="/photo/Sarang.png"
+              handle="abdalrahman"
+              avatarUrl="/photo/Abdalrahman.png"
+              miniAvatarUrl="/photo/Abdalrahman.png"
               showUserInfo={true}
               enableTilt={true}
               enableMobileTilt={false}

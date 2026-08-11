@@ -56,7 +56,7 @@ export default function Hero() {
         >
           <span className="hero-line block ghost z-0">Hey, I'm</span>
           <span className="block text-white -mt-2 md:-mt-6 z-10 hero-perspective">
-            {"Sarang.".split("").map((char, index) => (
+            {"Abdalrahman.".split("").map((char, index) => (
               <span key={index} className="hero-letter inline-block">
                 {char === " " ? "\u00A0" : char}
               </span>

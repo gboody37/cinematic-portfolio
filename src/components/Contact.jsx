@@ -38,7 +38,7 @@ export default function Contact({ standalone = false }) {
       const fullNumber = selectedCC.code + phoneNumber;
       const myNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919999999999';
       const msg = encodeURIComponent(
-        `Hi Sarang! My name is ${form.name}.\n\nReason: ${form.reason}\n\nMy number: +${fullNumber}`
+        `Hi Abdalrahman! My name is ${form.name}.\n\nReason: ${form.reason}\n\nMy number: +${fullNumber}`
       );
       window.open(`https://wa.me/${myNumber}?text=${msg}`, '_blank');
       return;

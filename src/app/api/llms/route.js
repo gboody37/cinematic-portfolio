@@ -9,14 +9,14 @@ import { NextResponse } from "next/server";
  */
 export async function GET() {
   const data = {
-    name: "Sarang",
+    name: "Abdalrahman",
     title: "Portfolio Designer, Website Developer, Video Editor & Photo Editor",
-    website: "https://sarang-space.site",
-    email: "sarangwalle@gmail.com",
+    website: "https://abdalrahman-space.site",
+    email: "abdalrahmanwalle@gmail.com",
     location: "India",
     available_for_hire: true,
     summary:
-      "Sarang is a freelance portfolio designer, website developer, video editor, and photo editor from India. He creates cinematic, immersive websites and digital experiences.",
+      "Abdalrahman is a freelance portfolio designer, website developer, video editor, and photo editor from India. He creates cinematic, immersive websites and digital experiences.",
     
     services: [
       {
@@ -68,14 +68,14 @@ export async function GET() {
     },
 
     pages: {
-      home: "https://sarang-space.site/",
-      about: "https://sarang-space.site/about",
-      work: "https://sarang-space.site/work",
-      contact: "https://sarang-space.site/contact",
+      home: "https://abdalrahman-space.site/",
+      about: "https://abdalrahman-space.site/about",
+      work: "https://abdalrahman-space.site/work",
+      contact: "https://abdalrahman-space.site/contact",
     },
 
-    llms_txt: "https://sarang-space.site/llms.txt",
-    llms_full_txt: "https://sarang-space.site/llms-full.txt",
+    llms_txt: "https://abdalrahman-space.site/llms.txt",
+    llms_full_txt: "https://abdalrahman-space.site/llms-full.txt",
   };
 
   return NextResponse.json(data, {

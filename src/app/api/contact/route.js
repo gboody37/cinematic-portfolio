@@ -48,7 +48,7 @@ export async function POST(request) {
 
     // Send email
     const { data, error: emailError } = await resend.emails.send({
-      from: 'Portfolio Contact <support@sarang-space.site>',
+      from: 'Portfolio Contact <support@abdalrahman-space.site>',
       to: process.env.ADMIN_EMAIL,
       replyTo: email,
       subject: `New message from ${name}`,

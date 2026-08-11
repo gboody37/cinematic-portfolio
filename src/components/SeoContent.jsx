@@ -14,7 +14,7 @@ export default function SeoContent() {
       itemType="https://schema.org/Person"
     >
       {/* Force rebuild */}
-      <h1 itemProp="name">Sarang — Next.js Developer, Shopify Expert, Graphic Designer & Video Editor</h1>
+      <h1 itemProp="name">Abdalrahman — Next.js Developer, Shopify Expert, Graphic Designer & Video Editor</h1>
       
       <p itemProp="description">
         Creative developer and designer specializing in Next.js websites, Shopify stores, branding, cinematic video editing, motion graphics, and premium digital experiences. 
@@ -26,12 +26,12 @@ export default function SeoContent() {
       <p itemProp="jobTitle">Next.js Developer & Shopify Expert</p>
 
       <section aria-label="Services">
-        <h2>Services — Hire Sarang</h2>
+        <h2>Services — Hire Abdalrahman</h2>
         
         <article>
           <h3>Portfolio Design & Website Development</h3>
           <p>
-            Looking for a Website Developer in Kerala or a Web Designer in Calicut? Sarang creates cinematic, interactive portfolio 
+            Looking for a Website Developer in Kerala or a Web Designer in Calicut? Abdalrahman creates cinematic, interactive portfolio 
             websites, landing pages, Shopify e-commerce stores, and full-stack web applications. Technologies include 
             React, Next.js, GSAP, Three.js, WebGL, Tailwind CSS, Node.js, Express, and Supabase.
           </p>
@@ -40,7 +40,7 @@ export default function SeoContent() {
         <article>
           <h3>Video Editing & Motion Design</h3>
           <p>
-            Need a freelance Video Editor in Kerala? Sarang creates cinematic trailers, social media reels, promotional videos,
+            Need a freelance Video Editor in Kerala? Abdalrahman creates cinematic trailers, social media reels, promotional videos,
             YouTube content, motion graphics, and animated visual effects using After Effects, Premiere Pro, 
             DaVinci Resolve, and CapCut. Over 75 videos edited.
           </p>
@@ -49,7 +49,7 @@ export default function SeoContent() {
         <article>
           <h3>Photo Editing & Graphic Design</h3>
           <p>
-            Hire a Graphic Designer in India. Sarang provides professional photo retouching, brand identity 
+            Hire a Graphic Designer in India. Abdalrahman provides professional photo retouching, brand identity 
             design, poster design, social media graphics, and creative visual concepts using Photoshop, Lightroom, 
             Figma, and Illustrator. Over 500 photo edits completed.
           </p>
@@ -90,10 +90,10 @@ export default function SeoContent() {
         </p>
       </section>
 
-      <section aria-label="About Sarang — Creative Website Developer & Designer">
-        <h2>Sarang – Creative Website Developer & Designer</h2>
+      <section aria-label="About Abdalrahman — Creative Website Developer & Designer">
+        <h2>Abdalrahman – Creative Website Developer & Designer</h2>
         <p>
-          Sarang is a creative website developer and digital designer from Kerala, India, focused on building modern digital experiences, cinematic visuals, branding systems, Shopify stores, and high-quality poster designs. With a strong passion for creativity and technology, Sarang combines visual storytelling with modern web development to create unique online experiences that feel premium, immersive, and visually powerful.
+          Abdalrahman is a creative website developer and digital designer from Kerala, India, focused on building modern digital experiences, cinematic visuals, branding systems, Shopify stores, and high-quality poster designs. With a strong passion for creativity and technology, Abdalrahman combines visual storytelling with modern web development to create unique online experiences that feel premium, immersive, and visually powerful.
         </p>
         
         <h3>Skills and Expertise:</h3>
@@ -121,15 +121,15 @@ export default function SeoContent() {
         </ul>
         
         <p>
-          Sarang continues to develop modern digital experiences focused on creativity, performance, storytelling, and visual identity. His goal is to create meaningful digital work that combines design, technology, and emotional impact into a single creative experience.
+          Abdalrahman continues to develop modern digital experiences focused on creativity, performance, storytelling, and visual identity. His goal is to create meaningful digital work that combines design, technology, and emotional impact into a single creative experience.
         </p>
       </section>
 
       <section aria-label="Contact">
-        <h2>Hire Sarang — Contact Information</h2>
+        <h2>Hire Abdalrahman — Contact Information</h2>
         <p>
-          <span itemProp="url">https://sarang-space.site</span> |
-          <span itemProp="email">sarangwalle[at]gmail.com</span> |
+          <span itemProp="url">https://abdalrahman-space.site</span> |
+          <span itemProp="email">abdalrahmanwalle[at]gmail.com</span> |
           Available for freelance projects worldwide
         </p>
       </section>
