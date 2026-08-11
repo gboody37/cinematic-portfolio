@@ -42,9 +42,9 @@ export default function McMenu() {
         {/* Name / Logo */}
         <div className="relative mb-20 flex flex-col items-center gap-4">
           <h1 
-            className="text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-orange-400 to-red-500 text-center font-black tracking-wide"
+            className="text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-white to-gray-300 text-center font-black tracking-wide px-4 py-2"
             dir="rtl"
-            style={{ textShadow: "0px 4px 20px rgba(255, 165, 0, 0.3)" }}
+            style={{ textShadow: "0px 4px 20px rgba(255, 255, 255, 0.2)" }}
           >
             عبد الرحمن عامودي
           </h1>

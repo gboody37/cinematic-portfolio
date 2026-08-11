@@ -69,13 +69,13 @@ export default function Cursor() {
         width:         32,
         height:        32,
         borderRadius:  "50%",
-        border:        "2px solid transparent",
-        background:    "linear-gradient(#0a0a0a, #0a0a0a) padding-box, linear-gradient(to right, #fcd34d, #f97316, #ef4444) border-box",
-        boxShadow:     "0 0 15px rgba(249, 115, 22, 0.4)",
+        border:        "1.5px solid rgba(255, 255, 255, 0.7)",
+        background:    "rgba(255, 255, 255, 0.05)",
+        backdropFilter: "blur(2px)",
         pointerEvents: "none",
         zIndex:        99999,
         willChange:    "transform",
-        transition:    "border-color 0.3s ease",
+        transition:    "border-color 0.3s ease, background 0.3s ease",
       }}
     >
       <div 
