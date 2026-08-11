@@ -10,7 +10,7 @@ import dynamic from "next/dynamic";
 import Cursor from "../components/Cursor";
 import Navbar from "../components/Navbar";
 const VideoScrub = dynamic(() => import("../components/VideoScrub"), { ssr: false });
-import Hero from "../components/Hero";
+import McMenu from "../components/McMenu";
 import About from "../components/About";
 import Work from "../components/Work";
 import Contact from "../components/Contact";
@@ -74,7 +74,7 @@ export default function Home() {
 
       {/* scrollable sections */}
       <div className="relative z-10">
-        <Hero />
+        <McMenu />
         <About />
         <Work />
         <Contact />

@@ -1,4 +1,4 @@
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display, Press_Start_2P } from "next/font/google";
 import "./globals.css";
 import TrackVisit from "@/components/TrackVisit";
 import { Analytics } from "@vercel/analytics/next";
@@ -9,6 +9,12 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   style: ["normal", "italic"],
   variable: "--font-playfair",
+  display: "swap"
+});
+const pixel = Press_Start_2P({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-pixel",
   display: "swap"
 });
 
