@@ -29,11 +29,10 @@ export const HEADING = {
 
 // *word* = highlighted/bold in BlurText
 export const BIO = [
-  "I am a *creative game developer* and *systems engineer* focused on building immersive digital experiences within *Minecraft* and beyond. Passionate about pushing the boundaries of block-based engines, I focus on creating high-fidelity *mods*, *custom plugins*, and seamless *server architectures*.",
-  "Over the years, I have worked on *custom game modes*, large-scale *multiplayer networks*, and complex *data-driven systems*. My work is heavily inspired by *cinematic game design*, performance optimization, and emotionally driven virtual worlds.",
-  "As a technical creator, I specialize in *Java development*, *Fabric/Forge modding*, *game server infrastructure*, and visually immersive UI/UX for games. My design philosophy focuses on creating gameplay that feels *premium*, *smooth*, and *emotionally engaging*.",
-  "I combine *backend engineering and game design* into one creative workflow. This allows me to build features that not only perform efficiently under heavy load but also create strong *visual impact* through custom rendering, cinematic camera work, and modern mechanics.",
-  "My creative philosophy is built around *originality*, *performance*, and *atmosphere*. I believe virtual worlds should feel alive, visually expressive, and deeply connected to the player's actions while maintaining absolute stability."
+  "I am a *BTEC student* and a *professional network engineer*, highly skilled in designing, configuring, and deploying complex network topologies using tools like *Cisco Packet Tracer*.",
+  "Alongside my networking expertise, I am a *professional AI specialist*. I leverage a massive ecosystem of advanced AI tools to build intelligent systems, automate workflows, and push the boundaries of modern technology.",
+  "My skill set extends deep into the creative realm. I am highly proficient in the *Adobe Creative Cloud* suite—using Premiere Pro, After Effects, and Photoshop to merge robust technical engineering with cinematic visual design.",
+  "I pride myself on being *good at everything*. Whether it's configuring intricate network routing, deploying state-of-the-art AI models, or crafting high-fidelity video edits, I master every tool I touch to deliver perfect results."
 ];
 
 export const RESUME_URL = "/resume.pdf";
@@ -82,7 +81,7 @@ export const CREATIVE = [
 ];
 
 export const EXPERIENCE = [
-  { role: "Freelance Developer",                       period: "2024 – Present" },
-  { role: "Freelance Video Editor",                    period: "2022 – Present" },
-  { role: "Freelance Photo Editor & Graphic Designer", period: "2020 – Present" },
+  { role: "Professional Network Engineer", period: "2024 – Present" },
+  { role: "AI Specialist",                 period: "2023 – Present" },
+  { role: "Professional Video Editor",     period: "2022 – Present" },
 ];

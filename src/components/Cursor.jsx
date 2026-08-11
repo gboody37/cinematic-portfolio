@@ -3,16 +3,14 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Cursor() {
   const cursorRef = useRef(null);
-  // null = unknown (SSR), true = touch device, false = mouse device
   const [isTouch, setIsTouch] = useState(null);
 
   useEffect(() => {
-    // pointer: coarse → touchscreen; pointer: fine → mouse/trackpad
     setIsTouch(window.matchMedia("(pointer: coarse)").matches);
   }, []);
 
   useEffect(() => {
-    if (isTouch !== false) return;  // skip if touch OR still unknown
+    if (isTouch !== false) return;
     const el = cursorRef.current;
     if (!el) return;
 
@@ -20,13 +18,11 @@ export default function Cursor() {
     let cx = -200, cy = -200;
     let scale = 1;
     let targetScale = 1;
-    let rotation = 0;
-    let targetRotation = 0;
     let raf = null;
 
     const onMove = (e) => { mx = e.clientX; my = e.clientY; };
-    const onEnter = () => { targetScale = 1.8; targetRotation = 45; };
-    const onLeave = () => { targetScale = 1; targetRotation = 0; };
+    const onEnter = () => { targetScale = 2.5; };
+    const onLeave = () => { targetScale = 1; };
 
     window.addEventListener("mousemove", onMove, { passive: true });
     document.querySelectorAll("a, button").forEach((node) => {
@@ -45,13 +41,12 @@ export default function Cursor() {
 
     const frame = () => {
       raf = requestAnimationFrame(frame);
-      cx += (mx - cx) * 0.11;
-      cy += (my - cy) * 0.11;
-      scale += (targetScale - scale) * 0.10;
-      rotation += (targetRotation - rotation) * 0.15;
+      cx += (mx - cx) * 0.15;
+      cy += (my - cy) * 0.15;
+      scale += (targetScale - scale) * 0.15;
       
       el.style.transform =
-        `translate(${cx}px,${cy}px) translate(-50%,-50%) scale(${scale}) rotate(${rotation}deg)`;
+        `translate(${cx}px,${cy}px) translate(-50%,-50%) scale(${scale})`;
     };
     raf = requestAnimationFrame(frame);
 
@@ -62,7 +57,6 @@ export default function Cursor() {
     };
   }, [isTouch]);
 
-  // Render nothing until we know the device type, and nothing on touch devices
   if (isTouch !== false) return null;
 
   return (
@@ -72,36 +66,28 @@ export default function Cursor() {
         position:      "fixed",
         top:           0,
         left:          0,
-        width:         24,
-        height:        24,
-        mixBlendMode:  "difference",
+        width:         32,
+        height:        32,
+        borderRadius:  "50%",
+        border:        "2px solid transparent",
+        background:    "linear-gradient(#0a0a0a, #0a0a0a) padding-box, linear-gradient(to right, #fcd34d, #f97316, #ef4444) border-box",
+        boxShadow:     "0 0 15px rgba(249, 115, 22, 0.4)",
         pointerEvents: "none",
         zIndex:        99999,
         willChange:    "transform",
+        transition:    "border-color 0.3s ease",
       }}
     >
-      {/* Vertical crosshair line */}
-      <div 
-        style={{
-          position: "absolute",
-          left: "50%",
-          top: "0",
-          bottom: "0",
-          width: "2px",
-          background: "#fff",
-          transform: "translateX(-50%)"
-        }}
-      />
-      {/* Horizontal crosshair line */}
       <div 
         style={{
           position: "absolute",
           top: "50%",
-          left: "0",
-          right: "0",
-          height: "2px",
+          left: "50%",
+          width: "4px",
+          height: "4px",
           background: "#fff",
-          transform: "translateY(-50%)"
+          borderRadius: "50%",
+          transform: "translate(-50%, -50%)"
         }}
       />
     </div>
