@@ -5,7 +5,7 @@ status: "Completed"
 
 # Video Editing Showreel
 
-![Video Editing Workspace](/photo/projects/video-editing.jpg)
+![Video Editing Workspace](/photo/projects/video-editing-v2.jpg)
 
 This project represents a collection of highly cinematic, energy-driven video edits. From crafting fast-paced montages synced to beat-heavy soundtracks to developing narrative-driven short films, this portfolio demonstrates a deep mastery of modern video editing techniques.
 

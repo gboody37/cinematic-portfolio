@@ -13,7 +13,7 @@ repository: gboody37/dumbbellgym
 
 # Dumbbell Gym Web Application
 
-![Gym Dashboard](/photo/projects/gym-dashboard.jpg)
+![Gym Dashboard](/photo/projects/gym-dashboard-bg.jpg)
 
 A full-stack **gym management web system** built with Next.js, React, Prisma ORM, and PostgreSQL. It provides real-time member registration, membership tracking, active status indexing, payment history, and an integrated cafeteria POS system.
 
