@@ -3,7 +3,7 @@ tags: ["photos", "nature", "landscape"]
 status: "Completed"
 ---
 
-# Golden Hour Nature Photography
+# Nature Photograph
 
 ![Tranquil Lake](/photo/projects/nature-photo.jpg)
 

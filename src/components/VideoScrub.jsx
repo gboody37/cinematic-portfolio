@@ -212,9 +212,9 @@ export default function VideoScrub() {
 
   const SECTION_IMAGES = [
     { id: null,              src: '/photo/sunset-bg.jpg'    }, // default / hero
-    { id: 'about-section',  src: '/photo/about.webp'   },
-    { id: 'work-section',   src: '/photo/project.webp' },
-    { id: 'contact-section', src: '/photo/contact.webp' },
+    { id: 'about-section',  src: '/photo/sunset-bg.jpg'   },
+    { id: 'work-section',   src: '/photo/sunset-bg.jpg' },
+    { id: 'contact-section', src: '/photo/sunset-bg.jpg' },
   ];
 
   // Mobile scroll-driven state — updated directly via RAF, no React re-renders

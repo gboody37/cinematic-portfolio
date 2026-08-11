@@ -70,6 +70,9 @@ export default function ProjectsPage({ initialProjects = [] }) {
 
   return (
     <section className="relative w-full min-h-screen pb-24 text-white">
+      {/* Background Image */}
+      <img src="/photo/sunset-bg.jpg" className="fixed inset-0 w-full h-full object-cover z-0 pointer-events-none" alt="Background" />
+      
       {/* Background dark overlay to ensure content is readable over nature sunset */}
       <div className="fixed inset-0 bg-black/75 z-0 pointer-events-none" />
 
