@@ -1,6 +1,6 @@
 ---
 tags:
-  - project
+  - website
   - dumbbellgym
   - nextjs
   - prisma
@@ -11,36 +11,28 @@ modified: 2026-08-10
 repository: gboody37/dumbbellgym
 ---
 
-# 🏋️ Dumbbell Gym Web Application (`dumbbellgym`)
+# Dumbbell Gym Web Application
 
-> **Repository**: [gboody37/dumbbellgym](https://github.com/gboody37/dumbbellgym)  
-> **Tech Stack**: Next.js | React | Prisma ORM | PostgreSQL | JOSE JWT | Jimp | XLSX
+![Gym Dashboard](https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2560&auto=format&fit=crop)
 
----
+A full-stack **gym management web system** built with Next.js, React, Prisma ORM, and PostgreSQL. It provides real-time member registration, membership tracking, active status indexing, payment history, and an integrated cafeteria POS system.
 
-## 📌 Application Summary
-**Dumbbell Gym** is a full-stack gym management web system. It provides real-time member registration, membership tracking, active status indexing, payment history, and an integrated cafeteria point-of-sale (POS) and inventory system.
+## Key Features
 
----
+### Member Management
+Complete member lifecycle management — registration, photo uploads, membership renewals, and status tracking. Each member gets a digital profile with automated expiry alerts.
 
-## 🛠️ Tech Stack & Key Modules
-- **Framework**: Next.js & React
-- **Database & ORM**: PostgreSQL with Prisma ORM
-- **Authentication**: JWT authentication with `jose` and `bcryptjs` password hashing
-- **Media & Export**: `jimp` for avatar optimization & `xlsx` for Excel report generation
+### Cafeteria POS & Inventory
+A built-in point-of-sale system for the gym's cafeteria, with real-time inventory tracking, sales reports, and low-stock alerts.
 
----
+### Analytics Dashboard
+Revenue breakdowns, membership growth charts, and daily attendance tracking visualized through interactive dashboards.
 
-## 🗄️ Core Database Models
-- **`User`**: System staff & coaches with JSON privilege management.
-- **`Member`**: Gym members with membership start/end dates, pricing, and active state.
-- **`MembershipPayment`**: Tracking financial transactions and member renewals.
-- **`CafeteriaSale` & `CafeteriaItem`**: Inventory stock and cafeteria POS sales tracking.
+![Gym Interior](https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=2560&auto=format&fit=crop)
 
----
-
-## 🔗 Related Knowledge Nodes
-- [[02 - Core Brain/01 - AI & Agentic Hub/Dumbbell Gym System Architecture|Dumbbell Gym System Architecture]]
-- [[02 - Core Brain/02 - MCP Network/Dumbbell Gym Database Schema|Dumbbell Gym Database Schema]]
-- [[03 - Projects/Gym Data Backup Repository|Gym Data Backup Repository]]
-- [[00 - Home Dashboard|Home Dashboard]]
+## Tech Stack
+- Next.js & React
+- PostgreSQL with Prisma ORM
+- JWT Authentication (jose + bcryptjs)
+- Jimp for image optimization
+- XLSX for Excel report generation

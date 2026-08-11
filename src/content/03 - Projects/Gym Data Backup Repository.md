@@ -1,37 +1,30 @@
 ---
-tags:
-  - project
-  - gym-data
-  - backup
-  - database
-status: Active
-priority: P1
-created: 2026-08-10
-modified: 2026-08-10
+tags: ["website", "backup", "github", "data"]
+status: "Completed"
 repository: gboody37/gym-data
 ---
 
-# 📦 Gym Data Backup Repository (`gym-data`)
+# Gym Data Backup Repository
 
-> **Repository**: [gboody37/gym-data](https://github.com/gboody37/gym-data)  
-> **Type**: Automated Cloud Database & JSON Snapshots
+![Data Center](https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2560&auto=format&fit=crop)
 
----
+A dedicated **data backup and version control** system for the Dumbbell Gym application. This repository ensures all critical gym data — member records, financial transactions, and inventory — is safely backed up with full version history.
 
-## 📌 Purpose & Backup Pipeline
-**`gym-data`** serves as the automated cloud vault for system database backups from [[03 - Projects/Dumbbell Gym Web Application|Dumbbell Gym]]. It stores periodic JSON snapshots of members, payment history, inventory stock, and cafeteria transactions.
+## System Design
 
----
+### Automated Backups
+Scheduled scripts run nightly to export the latest database state into structured JSON and CSV files, which are then committed to the repository automatically.
 
-## 📂 Backup File Schedule
-- `backup_Sunday_09-08-2026.json`
-- `backup_Thursday_06-08-2026.json`
-- `backup_Wednesday_05-08-2026.json`
-- `backup_saturday.json`
+### Data Integrity
+Checksums and validation scripts verify data integrity after every backup cycle, preventing corrupted exports from overwriting good data.
 
----
+### Historical Tracking
+Every change to member records, payment history, and inventory levels is tracked through git commits, providing a complete audit trail.
 
-## 🔗 Related Knowledge Nodes
-- [[03 - Projects/Dumbbell Gym Web Application|Dumbbell Gym Web Application]]
-- [[02 - Core Brain/02 - MCP Network/Dumbbell Gym Database Schema|Dumbbell Gym Database Schema]]
-- [[00 - Home Dashboard|Home Dashboard]]
+![Server Room](https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?q=80&w=2560&auto=format&fit=crop)
+
+## Technologies
+- PostgreSQL data export
+- Shell scripting automation
+- Git version control
+- JSON/CSV data formatting

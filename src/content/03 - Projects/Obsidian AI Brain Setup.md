@@ -1,29 +1,29 @@
 ---
-tags:
-  - project
-status: Completed
-priority: P1
-created: 2026-08-10
-modified: 2026-08-10
+tags: ["website", "obsidian", "ai", "automation"]
+status: "Completed"
 ---
 
-# 🚀 Project: Obsidian AI Brain & MCP Integration
+# Obsidian AI Brain Setup
 
-## 📌 Objective
-Establish a fully functional, production-grade Obsidian Brain vault at `/home/keyu/Ai/Brain` with pre-configured community plugins, dynamic Dataview dashboards, knowledge structures, and global MCP integration for Antigravity AI.
+![AI Brain Workspace](https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2560&auto=format&fit=crop)
 
----
+An intelligent **Personal Knowledge Management** system built on top of Obsidian, integrated with AI-powered agents. This system automates note-taking, knowledge retrieval, and cross-referencing across hundreds of documents.
 
-## 📋 Roadmap & Deliverables
-- [x] Initialized 6-tier vault directory structure
-- [x] Pre-installed community plugins (`dataview`, `templater-obsidian`, `obsidian-excalidraw-plugin`, `obsidian-tasks-plugin`, `omnisearch`, `obsidian-git`)
-- [x] Created `00 - Home Dashboard.md` with live Dataview queries
-- [x] Generated global MCP configuration `~/.gemini/config/mcp_config.json`
-- [x] Implemented workspace agent skill `.agents/skills/obsidian-brain-manager/SKILL.md`
+## Architecture
 
----
+### AI Agent Integration
+Custom AI agents continuously index and cross-link notes, automatically generating connections between related topics. The system uses vector embeddings for semantic search across the entire vault.
 
-## 🔗 Related Notes
-- [[00 - Home Dashboard|Home Dashboard]]
-- [[00 - System/Dashboards/MCP Connection Registry|MCP Connection Registry]]
-- [[02 - Core Brain/Obsidian Brain Operating System|Obsidian Brain Operating System]]
+### Automated Workflows
+Scheduled tasks handle daily summaries, project status updates, and knowledge graph maintenance without manual intervention.
+
+### Smart Templates
+Pre-configured templates for meeting notes, project briefs, and research logs ensure consistency across the knowledge base.
+
+![Neural Network](https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2560&auto=format&fit=crop)
+
+## Technologies
+- Obsidian with custom plugins
+- AI/ML integration via API
+- Node.js automation scripts
+- Markdown processing pipeline

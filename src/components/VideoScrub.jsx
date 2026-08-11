@@ -211,7 +211,7 @@ export default function VideoScrub() {
   }, [isMobile, mounted]);
 
   const SECTION_IMAGES = [
-    { id: null,              src: '/photo/hero.webp'    }, // default / hero
+    { id: null,              src: '/photo/sunset-bg.jpg'    }, // default / hero
     { id: 'about-section',  src: '/photo/about.webp'   },
     { id: 'work-section',   src: '/photo/project.webp' },
     { id: 'contact-section', src: '/photo/contact.webp' },
@@ -313,7 +313,7 @@ export default function VideoScrub() {
         <div 
           className="absolute inset-0 w-full h-full opacity-60"
           style={{
-            backgroundImage: "url('/photo/hero.webp')",
+            backgroundImage: "url('/photo/sunset-bg.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center top",
           }}
@@ -332,7 +332,7 @@ export default function VideoScrub() {
   if (isMobile) {
     return (
       <div className="fixed inset-0 z-0 bg-[#0a0a0a]">
-        <img src="/photo/hero.webp" className={cls} style={{ ...sty, opacity: 1, objectFit: 'cover' }} alt="Background" />
+        <img src="/photo/sunset-bg.jpg" className={cls} style={{ ...sty, opacity: 1, objectFit: 'cover' }} alt="Background" />
         <div className="absolute inset-0 bg-black/45 z-10" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/10 to-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25 z-10" />
@@ -343,7 +343,7 @@ export default function VideoScrub() {
   // Desktop: Full static image experience
   return (
     <div className="fixed inset-0 z-0 bg-[#0a0a0a]">
-      <img src="/photo/hero.webp" className={cls} style={{ ...sty, opacity: 1 }} alt="Background" />
+      <img src="/photo/sunset-bg.jpg" className={cls} style={{ ...sty, opacity: 1 }} alt="Background" />
       <div className="absolute inset-0 bg-black/35" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/15 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/25" />
