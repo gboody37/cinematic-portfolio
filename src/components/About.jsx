@@ -101,19 +101,7 @@ export default function About({ standalone = false }) {
             />
           ))}
 
-          <div className={`about-p mt-6 ${standalone ? "flex justify-end" : "flex justify-start"}`}>
-            <a
-              href={RESUME_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-[#ff6b1a]/30 text-[#ff6b1a] text-xs font-bold uppercase tracking-widest rounded-full hover:bg-[#ff6b1a] hover:text-black transition-colors duration-300"
-            >
-              View Resume
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-          </div>
+
         </div>
 
         {/* Right Skills & Experience */}
