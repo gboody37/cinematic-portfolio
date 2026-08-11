@@ -22,9 +22,9 @@ export const SECTION = {
 };
 
 export const HEADING = {
-  line1: "Crafting",
+  line1: "Engineering",
   line2: "the",
-  line3: "invisible.",   // ghost (outline) style
+  line3: "future.",   // ghost (outline) style
 };
 
 // *word* = highlighted/bold in BlurText
