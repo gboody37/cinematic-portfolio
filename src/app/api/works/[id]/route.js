@@ -1,54 +1,29 @@
 import { NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
-import { jwtVerify } from 'jose';
-import { supabase } from '@/lib/supabase';
-
-async function isAdmin() {
-  const store = await cookies();
-  const token = store.get('admin_token')?.value;
-  if (!token) return false;
-  try {
-    const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-    await jwtVerify(token, secret);
-    return true;
-  } catch {
-    return false;
-  }
-}
+import { getProjects } from '@/lib/brain';
 
 export async function GET(request, { params }) {
   const { id } = await params;
-  const { data: work, error } = await supabase
-    .from('works')
-    .select('*')
-    .eq('id', id)
-    .single();
-  if (error || !work) return NextResponse.json({ error: 'Not found' }, { status: 404 });
-  return NextResponse.json(work);
-}
+  
+  const projects = getProjects();
+  const work = projects.find(p => p.slug === id);
 
-export async function PATCH(request, { params }) {
-  if (!(await isAdmin())) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  if (!work) {
+    return NextResponse.json({ error: 'Not found' }, { status: 404 });
   }
-  const { id } = await params;
-  const body = await request.json();
-  const { data: work, error } = await supabase
-    .from('works')
-    .update(body)
-    .eq('id', id)
-    .select()
-    .single();
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json(work);
-}
 
-export async function DELETE(request, { params }) {
-  if (!(await isAdmin())) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-  const { id } = await params;
-  const { error } = await supabase.from('works').delete().eq('id', id);
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json({ success: true });
+  // Map the Markdown project format to match what the frontend expects
+  const formattedWork = {
+    id: work.slug,
+    title: work.title,
+    category: work.tags?.[0] || 'Project',
+    image_url: work.coverImage,
+    description: work.content.replace(/!\[.*?\]\(.*?\)/g, '').replace(/^#\s+.+$/m, '').trim(),
+    tech: work.tags || [],
+    services: work.tags || [],
+    client: work.status,
+    year: "2024", // Default or extract if needed
+    link: work.repository ? `https://github.com/${work.repository}` : null,
+  };
+
+  return NextResponse.json(formattedWork);
 }
