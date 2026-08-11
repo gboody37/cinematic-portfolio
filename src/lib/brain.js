@@ -26,12 +26,17 @@ export function getProjects() {
       title = h1Match[1].replace(/`/g, '').trim();
     }
 
+    // Extract first image
+    const imgMatch = content.match(/!\[.*?\]\((.*?)\)/);
+    const coverImage = imgMatch ? imgMatch[1] : null;
+
     return {
       slug: filename.replace('.md', ''),
       title,
       tags: data.tags || [],
       status: data.status || 'Unknown',
       repository: data.repository || '',
+      coverImage,
       content
     };
   });

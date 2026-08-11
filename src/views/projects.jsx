@@ -258,17 +258,17 @@ export default function ProjectsPage({ initialProjects = [] }) {
     if (initialProjects && initialProjects.length > 0) {
       const normalizeCategory = (cat) => {
         const c = (cat || "").toLowerCase();
-        if (c.includes("web") || c.includes("site")) return "Website";
-        if (c.includes("design") || c.includes("poster") || c.includes("ui") || c.includes("graphic")) return "Designs";
+        if (c.includes("web") || c.includes("site") || c.includes("network")) return "Website";
+        if (c.includes("design") || c.includes("poster") || c.includes("ui") || c.includes("graphic") || c.includes("brand")) return "Designs";
         if (c.includes("photo") || c.includes("image") || c.includes("pic")) return "Photos";
         if (c.includes("video") || c.includes("motion") || c.includes("film") || c.includes("edit")) return "Videos";
-        return cat || "Website";
+        return "Website";
       };
       const mapped = initialProjects.map((p) => ({
         id: p.slug,
-        image: `https://picsum.photos/seed/${p.slug}/800/600?grayscale`, // Placeholder image for now
+        image: p.coverImage || `https://picsum.photos/seed/${p.slug}/800/600?grayscale`, // Placeholder image for now
         text: p.title,
-        category: normalizeCategory(p.status), // Using status as category for now
+        category: normalizeCategory((p.tags && p.tags.join(" ")) || p.status),
         description: p.tags ? p.tags.join(', ') : '',
         tech: p.tags ? p.tags.join('·') : '',
         link: p.repository ? `https://github.com/${p.repository}` : '',
