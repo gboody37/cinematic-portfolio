@@ -1,8 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import gsap from "gsap";
+import Image from "next/image";
 import PageShell from "../../../components/PageShell";
 
 function safeUrl(url) {
@@ -10,9 +11,25 @@ function safeUrl(url) {
   return /^https?:\/\//i.test(url) ? url : `https://${url}`;
 }
 
+const renderParsedText = (text) => {
+  if (!text) return "";
+  const parts = text.split(/\*([^*]+)\*/g);
+  return parts.map((part, index) => {
+    if (index % 2 === 1) {
+      return (
+        <span key={index} className="font-serif italic text-white/90">
+          {part}
+        </span>
+      );
+    }
+    return part;
+  });
+};
+
 export default function ProjectPage() {
   const { id } = useParams();
   const router  = useRouter();
+  const ref = useRef(null);
   const [project, setProject]   = useState(null);
   const [loading, setLoading]   = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -38,8 +55,14 @@ export default function ProjectPage() {
   useEffect(() => {
     if (!project) return;
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-    gsap.from(".proj-hero-text", { y: 50, opacity: 0, duration: 0.8, ease: "power4.out", delay: 0.2 });
-    gsap.from(".proj-body",  { y: 40, opacity: 0, duration: 0.7, ease: "power3.out", delay: 0.4 });
+    const ctx = gsap.context(() => {
+      gsap.from(".ap-label", { y: 20, opacity: 0, duration: 0.5, delay: 0.3 });
+      gsap.from(".ap-h", { y: 55, opacity: 0, duration: 0.8, ease: "power4.out", delay: 0.5 });
+      gsap.from(".ap-bio", { y: 25, opacity: 0, duration: 0.6, delay: 0.7 });
+      gsap.from(".ap-img", { scale: 1.04, opacity: 0, duration: 1.4, ease: "power3.out", delay: 0.1 });
+      gsap.from(".ap-media", { scale: 0.95, opacity: 0, duration: 1.2, ease: "power4.out", delay: 0.5 });
+    }, ref);
+    return () => ctx.revert();
   }, [project]);
 
   // Parse tech/services into array safely
@@ -51,32 +74,34 @@ export default function ProjectPage() {
     services = servicesData.split(/[,;]/).map((s) => s.trim()).filter(Boolean);
   }
 
-  // Parse gallery safely
-  let gallery = [];
-  if (project?.gallery) {
-    if (Array.isArray(project.gallery)) {
-      gallery = project.gallery;
-    } else if (typeof project.gallery === "string") {
-      try {
-        gallery = JSON.parse(project.gallery);
-      } catch (e) {
-        console.error("Failed to parse gallery:", e);
-      }
-    }
-  }
-
   return (
     <PageShell>
-      <div className="min-h-screen bg-[#080808] text-white">
+      <section ref={ref} className="relative w-full min-h-dvh overflow-y-auto">
+
+        {/* Background image - consistent with About Me */}
+        <div className="ap-img fixed inset-0 z-0 opacity-40">
+          <Image
+            src="/photo/sunset-bg.jpg"
+            alt="Background"
+            fill
+            className="object-cover object-center filter blur-md"
+            priority
+          />
+          {/* Mobile: heavy bottom dark overlay so text is readable */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/80 to-[#080808]/30 md:hidden" />
+          {/* Desktop: side gradient */}
+          <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-[#080808] via-[#080808]/90 to-transparent" />
+          <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-[#080808]/60" />
+        </div>
 
         {loading && (
-          <div className="flex items-center justify-center min-h-screen">
+          <div className="relative z-10 flex items-center justify-center min-h-screen">
             <div className="w-6 h-6 border-2 border-white/20 border-t-[#ff6b1a] rounded-full animate-spin" />
           </div>
         )}
 
         {notFound && (
-          <div className="flex flex-col items-center justify-center min-h-screen gap-6">
+          <div className="relative z-10 flex flex-col items-center justify-center min-h-screen gap-6">
             <p className="text-white/20 text-sm tracking-widest uppercase">Project not found</p>
             <Link href="/projects" className="text-[#ff6b1a] text-[11px] tracking-[0.4em] uppercase hover:opacity-70 transition-opacity">
               Back to projects
@@ -86,211 +111,161 @@ export default function ProjectPage() {
 
         {project && (
           <>
-            {/* ── HERO ── */}
-            <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
-              {project.image_url || project.mobile_image_url ? (
-                (project.image_url?.includes('.mp4') || project.image_url?.includes('.webm') || project.image_url?.includes('.mov')) ? (
-                  <video src={project.image_url} className="absolute inset-0 w-full h-full object-cover" muted loop playsInline autoPlay />
-                ) : (
-                  <picture>
-                    {project.mobile_image_url && <source media="(max-width: 767px)" srcSet={project.mobile_image_url} />}
+            {/* ── MOBILE LAYOUT ── */}
+            <div className="flex flex-col px-5 pt-28 pb-10 relative z-10 md:hidden min-h-dvh">
+              <p className="ap-label text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase mb-4 font-medium">
+                {project.category || "CASE STUDY"}
+              </p>
+              <h1 className="ap-h font-black text-3xl tracking-tighter leading-none mb-6">
+                <span className="block text-white">{project.title}</span>
+              </h1>
+
+              {/* Main Image Mobile */}
+              {(project.image_url || project.mobile_image_url) && (
+                <div className="ap-media w-full aspect-[4/3] rounded-2xl overflow-hidden mb-8 border border-white/10">
+                  <img
+                    src={project.image_url || project.mobile_image_url}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+
+              {project.description && (
+                <div className="ap-bio mb-8">
+                  <h3 className="text-white font-bold text-sm mb-3">OVERVIEW</h3>
+                  <p className="text-[13px] text-white/50 font-light leading-relaxed">
+                    {renderParsedText(project.description)}
+                  </p>
+                </div>
+              )}
+
+              {/* Meta Details */}
+              <div className="ap-bio grid grid-cols-2 gap-6 mb-8">
+                {project.client && (
+                  <div>
+                    <p className="text-[9px] text-[#ff6b1a] tracking-[0.4em] uppercase mb-1.5 font-bold">Client</p>
+                    <p className="text-white text-sm font-medium">{project.client}</p>
+                  </div>
+                )}
+                {project.year && (
+                  <div>
+                    <p className="text-[9px] text-[#ff6b1a] tracking-[0.4em] uppercase mb-1.5 font-bold">Year</p>
+                    <p className="text-white text-sm font-medium">{project.year}</p>
+                  </div>
+                )}
+              </div>
+
+              {services.length > 0 && (
+                <div className="ap-bio mb-10">
+                  <p className="text-[9px] text-[#ff6b1a] tracking-[0.4em] uppercase mb-3 font-bold">Services & Tech</p>
+                  <div className="flex flex-wrap gap-2">
+                    {services.map((s) => (
+                      <span key={s} className="px-3 py-1.5 rounded-full border border-white/10 text-white/70 text-[10px] uppercase tracking-wider">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {project.link && (
+                <a
+                  href={safeUrl(project.link)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ap-bio inline-flex items-center justify-center gap-2 px-5 py-3 border border-[#ff6b1a]/30 text-[#ff6b1a] text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-[#ff6b1a] hover:text-black transition-colors duration-300 w-full mb-12"
+                >
+                  View Live Project
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </a>
+              )}
+            </div>
+
+            {/* ── DESKTOP LAYOUT ── */}
+            <div className="hidden md:flex relative z-10 w-full min-h-dvh max-w-[1400px] mx-auto px-16 xl:px-24">
+              
+              {/* Left Column - Meta & Info */}
+              <div className="w-[45%] lg:w-[40%] flex flex-col justify-center py-20 pr-12 xl:pr-20">
+                <p className="ap-label text-[11px] xl:text-[12px] text-[#ff6b1a] tracking-[0.4em] uppercase mb-6 font-medium">
+                  {project.category || "CASE STUDY"}
+                </p>
+                <h1 className="ap-h font-black text-5xl xl:text-6xl tracking-tighter leading-[0.95] mb-10 text-white">
+                  {project.title}
+                </h1>
+
+                {project.description && (
+                  <div className="ap-bio mb-10">
+                    <h3 className="text-white font-bold text-sm tracking-widest mb-4">OVERVIEW</h3>
+                    <p className="text-[14px] xl:text-[15px] text-white/50 font-light leading-relaxed">
+                      {renderParsedText(project.description)}
+                    </p>
+                  </div>
+                )}
+
+                <div className="ap-bio grid grid-cols-2 gap-8 mb-10">
+                  {project.client && (
+                    <div>
+                      <p className="text-[10px] text-[#ff6b1a] tracking-[0.4em] uppercase mb-2 font-bold">Client</p>
+                      <p className="text-white text-base font-medium">{project.client}</p>
+                    </div>
+                  )}
+                  {project.year && (
+                    <div>
+                      <p className="text-[10px] text-[#ff6b1a] tracking-[0.4em] uppercase mb-2 font-bold">Year</p>
+                      <p className="text-white text-base font-medium">{project.year}</p>
+                    </div>
+                  )}
+                </div>
+
+                {services.length > 0 && (
+                  <div className="ap-bio mb-12">
+                    <p className="text-[10px] text-[#ff6b1a] tracking-[0.4em] uppercase mb-4 font-bold">Services & Tech</p>
+                    <div className="flex flex-wrap gap-2.5">
+                      {services.map((s) => (
+                        <span key={s} className="px-4 py-2 rounded-full border border-white/10 text-white/70 text-[11px] uppercase tracking-wider bg-black/40 backdrop-blur-sm">
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {project.link && (
+                  <a
+                    href={safeUrl(project.link)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ap-bio self-start inline-flex items-center gap-3 px-6 py-3.5 border border-[#ff6b1a]/30 text-[#ff6b1a] text-[11px] font-bold uppercase tracking-widest rounded-full hover:bg-[#ff6b1a] hover:text-black transition-colors duration-300"
+                  >
+                    View Live Project
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                  </a>
+                )}
+                
+                <Link href="/projects" className="ap-bio mt-16 text-white/30 hover:text-white text-xs uppercase tracking-widest transition-colors flex items-center gap-2">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                  Back to Projects
+                </Link>
+              </div>
+
+              {/* Right Column - Media */}
+              <div className="w-[55%] lg:w-[60%] flex items-center justify-center py-20">
+                {(project.image_url || project.mobile_image_url) && (
+                  <div className="ap-media relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-[#080808]/50 backdrop-blur-xl">
                     <img
                       src={project.image_url || project.mobile_image_url}
                       alt={project.title}
                       className="absolute inset-0 w-full h-full object-cover"
                     />
-                  </picture>
-                )
-              ) : (
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-[#080808]" />
-              )}
-              {/* Dark overlay */}
-              <div className="absolute inset-0 bg-black/55" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent" />
-
-              {/* Hero text */}
-              <div className="absolute bottom-0 left-0 right-0 px-6 md:px-16 pb-10 md:pb-14">
-                <div className="proj-hero-text">
-                  {project.category && (
-                    <span className="inline-block text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase font-medium mb-3 border border-[#ff6b1a]/30 px-3 py-1 rounded-full">
-                      {project.category}
-                    </span>
-                  )}
-                  <h1
-                    className="font-black tracking-tighter leading-[0.88] text-white"
-                    style={{ fontSize: "clamp(2.2rem, 6vw, 5rem)" }}
-                  >
-                    {project.title}
-                  </h1>
-                  {(project.client || project.year) && (
-                    <div className="flex items-center gap-6 mt-4 text-white/50 text-sm">
-                      {project.client && (
-                        <span className="flex items-center gap-2">
-                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="5" r="2.5" stroke="currentColor" strokeWidth="1.2"/><path d="M2.5 12c0-2.485 2.015-4.5 4.5-4.5s4.5 2.015 4.5 4.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>
-                          {project.client}
-                        </span>
-                      )}
-                      {project.year && (
-                        <span className="flex items-center gap-2">
-                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1.5" y="2.5" width="11" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.2"/><path d="M1.5 5.5h11M4.5 1v3M9.5 1v3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>
-                          {project.year}
-                        </span>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* ── BODY ── */}
-            <div className="proj-body px-6 md:px-16 py-16 md:py-20 max-w-7xl mx-auto">
-              <div className="grid md:grid-cols-[1fr_280px] gap-12 md:gap-20">
-
-                {/* LEFT — description + gallery */}
-                <div>
-                  {project.description && (
-                    <>
-                      <h2 className="font-black text-xl text-white mb-5 tracking-tight">The Challenge</h2>
-                      <p className="text-white/55 text-base md:text-lg font-light leading-relaxed mb-12">
-                        {project.description}
-                      </p>
-                    </>
-                  )}
-
-                  {project.review && (
-                    <blockquote className="border-l-2 border-[#ff6b1a]/40 pl-6 mb-12">
-                      <p className="text-white/50 italic text-base leading-relaxed font-serif">"{project.review}"</p>
-                    </blockquote>
-                  )}
-                  {/* Responsive Previews */}
-                  {(project.desktop_view_url || project.phone_view_url) && (
-                    <div className="mb-12">
-                      <h2 className="font-black text-xl text-white mb-6 tracking-tight">Previews</h2>
-                      <div className="flex flex-col gap-6">
-                        {project.desktop_view_url && (
-                          <div className="w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
-                            <img src={project.desktop_view_url} alt="Desktop Preview" className="w-full object-cover" />
-                          </div>
-                        )}
-                        {project.phone_view_url && (
-                          <div className="w-full max-w-sm mx-auto rounded-2xl overflow-hidden bg-white/5 border border-white/10">
-                            <img src={project.phone_view_url} alt="Phone Preview" className="w-full object-cover" />
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Gallery */}
-                  {gallery && gallery.length > 0 && (
-                    <div>
-                      <h2 className="font-black text-xl text-white mb-6 tracking-tight">Gallery</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                        {gallery.map((url, i) => (
-                          <div key={i} className="aspect-video rounded-xl overflow-hidden bg-white/5">
-                            {url.includes('.mp4') || url.includes('.webm') || url.includes('.mov') ? (
-                              <video
-                                src={url}
-                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                                muted loop playsInline autoPlay
-                              />
-                            ) : (
-                              <img
-                                src={url}
-                                alt={`${project.title} ${i + 1}`}
-                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-zoom-in"
-                              />
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* RIGHT — project details sidebar */}
-                <div className="md:pt-1">
-                  <div className="bg-[#111] border border-white/5 rounded-2xl p-6 md:sticky md:top-28 flex flex-col gap-6">
-                    <h3 className="font-bold text-white text-base tracking-tight">Project Details</h3>
-
-                    {project.client && (
-                      <div>
-                        <p className="text-[9px] text-white/30 tracking-[0.4em] uppercase mb-1.5">Client</p>
-                        <p className="text-white text-sm font-medium">{project.client}</p>
-                      </div>
-                    )}
-
-                    {project.year && (
-                      <div>
-                        <p className="text-[9px] text-white/30 tracking-[0.4em] uppercase mb-1.5">Year</p>
-                        <p className="text-white text-sm font-medium">{project.year}</p>
-                      </div>
-                    )}
-
-                    {project.category && (
-                      <div>
-                        <p className="text-[9px] text-white/30 tracking-[0.4em] uppercase mb-1.5">Category</p>
-                        <p className="text-white/70 text-sm">{project.category}</p>
-                      </div>
-                    )}
-
-                    {services.length > 0 && (
-                      <div>
-                        <p className="text-[9px] text-white/30 tracking-[0.4em] uppercase mb-2">Services</p>
-                        <ul className="flex flex-col gap-1.5">
-                          {services.map((s) => (
-                            <li key={s} className="flex items-center gap-2 text-white/60 text-sm">
-                              <span className="w-1 h-1 rounded-full bg-[#ff6b1a] shrink-0" />
-                              {s}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
-                    {project.link && (
-                      <a
-                        href={safeUrl(project.link)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-2 w-full flex items-center justify-center gap-2 bg-[#ff6b1a] text-black font-bold py-3 rounded-xl text-[11px] uppercase tracking-widest hover:bg-[#ff8c42] transition-colors duration-300"
-                      >
-                        View Live
-                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                          <path d="M2 8L8 2M8 2H4M8 2v4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-                        </svg>
-                      </a>
-                    )}
                   </div>
-                </div>
-
+                )}
               </div>
-            </div>
-
-            {/* ── CTA ── */}
-            <div className="border-t border-white/5 py-24 px-6 md:px-16 text-center">
-              <p className="text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase mb-5 font-medium">Start Your Journey</p>
-              <h2 className="font-black tracking-tighter leading-[0.9] mb-8 text-white" style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}>
-                Ready to Elevate<br />
-                <span className="ghost-orange italic font-serif">Your Brand Presence?</span>
-              </h2>
-              <p className="text-white/30 text-sm font-light mb-10 max-w-md mx-auto leading-relaxed">
-                From concept to completion, let's build something visually stunning and smooth to use.
-              </p>
-              <Link
-                href="/#contact-section"
-                className="inline-flex items-center gap-3 bg-[#ff6b1a] text-black font-black px-8 py-4 rounded-full text-[11px] uppercase tracking-[0.25em] hover:bg-[#ff8c42] transition-colors duration-300"
-              >
-                Get In Touch
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                </svg>
-              </Link>
             </div>
           </>
         )}
 
-      </div>
+      </section>
     </PageShell>
   );
 }
