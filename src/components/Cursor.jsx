@@ -20,11 +20,13 @@ export default function Cursor() {
     let cx = -200, cy = -200;
     let scale = 1;
     let targetScale = 1;
+    let rotation = 0;
+    let targetRotation = 0;
     let raf = null;
 
     const onMove = (e) => { mx = e.clientX; my = e.clientY; };
-    const onEnter = () => { targetScale = 2.6; };
-    const onLeave = () => { targetScale = 1; };
+    const onEnter = () => { targetScale = 1.8; targetRotation = 45; };
+    const onLeave = () => { targetScale = 1; targetRotation = 0; };
 
     window.addEventListener("mousemove", onMove, { passive: true });
     document.querySelectorAll("a, button").forEach((node) => {
@@ -46,8 +48,10 @@ export default function Cursor() {
       cx += (mx - cx) * 0.11;
       cy += (my - cy) * 0.11;
       scale += (targetScale - scale) * 0.10;
+      rotation += (targetRotation - rotation) * 0.15;
+      
       el.style.transform =
-        `translate(${cx}px,${cy}px) translate(-50%,-50%) scale(${scale})`;
+        `translate(${cx}px,${cy}px) translate(-50%,-50%) scale(${scale}) rotate(${rotation}deg)`;
     };
     raf = requestAnimationFrame(frame);
 
@@ -68,15 +72,38 @@ export default function Cursor() {
         position:      "fixed",
         top:           0,
         left:          0,
-        width:         38,
-        height:        38,
-        borderRadius:  "50%",
-        background:    "#fff",
+        width:         24,
+        height:        24,
         mixBlendMode:  "difference",
         pointerEvents: "none",
         zIndex:        99999,
         willChange:    "transform",
       }}
-    />
+    >
+      {/* Vertical crosshair line */}
+      <div 
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "0",
+          bottom: "0",
+          width: "2px",
+          background: "#fff",
+          transform: "translateX(-50%)"
+        }}
+      />
+      {/* Horizontal crosshair line */}
+      <div 
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "0",
+          right: "0",
+          height: "2px",
+          background: "#fff",
+          transform: "translateY(-50%)"
+        }}
+      />
+    </div>
   );
 }

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-const BRAIN_DIR = '/home/keyu/Ai/Brain';
+const BRAIN_DIR = path.join(process.cwd(), 'src', 'content');
 
 export function getProjects() {
   const projectsDir = path.join(BRAIN_DIR, '03 - Projects');

@@ -10,15 +10,6 @@ export default function McMenu() {
   const [showRealms, setShowRealms] = useState(false);
 
   useEffect(() => {
-    // Pulse animation for splash text
-    gsap.to(".mc-splash", {
-      scale: 1.08,
-      duration: 0.4,
-      yoyo: true,
-      repeat: -1,
-      ease: "power1.inOut"
-    });
-
     // Fade out when scrolling down (like Hero)
     const ctx = gsap.context(() => {
       gsap.to(ref.current, {
@@ -60,17 +51,6 @@ export default function McMenu() {
           >
             KEYU
           </h1>
-          
-          {/* Splash Text */}
-          <div 
-            className="mc-splash absolute -bottom-8 -right-8 md:-right-24 text-yellow-300 text-sm md:text-lg transform -rotate-[20deg]"
-            style={{ 
-              fontFamily: "var(--font-pixel), monospace",
-              textShadow: "2px 2px 0px #3f3f3f"
-            }}
-          >
-            Now with 100% more cinematic!
-          </div>
         </div>
 
         {/* Menu Buttons */}
